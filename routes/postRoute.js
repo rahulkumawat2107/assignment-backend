@@ -9,7 +9,19 @@ router.get('/orders', async(req, res) => {
 
 router.post('/order', async(req, res) => {
 
-    const order = await Post.create(req.body);
+    console.log(req.body);
+
+    const quantity = parseInt(req.body.quantity);
+    const totalAmount = parseInt(req.body.totalAmount);
+
+    const order = await Post.create({
+        orderId: req.body.orderId,
+        itemName: req.body.itemName,
+        quantity: quantity,
+        totalAmount: totalAmount
+    });
+
+    console.log("prder", order);
 
     res.status(201).send({
         success: true,
