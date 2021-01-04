@@ -4,13 +4,14 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const colors = require('colors');
 var cors = require('cors');
-const connectDB = require('./config/db');
+//const connectDB = require('./config/db');
+const pool = require('./config/db');
 
 // Load env variables
 dotenv.config({ path: './config/config.env' });
 
 // Connect to database
-connectDB();
+//connectDB();
 
 // Router files
 const postRoute = require('./routes/postRoute');
